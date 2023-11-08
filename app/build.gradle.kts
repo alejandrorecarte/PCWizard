@@ -4,11 +4,11 @@ plugins {
 
 android {
     namespace = "com.example.pcwizard"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.pcwizard"
-        minSdk = 24
+        minSdk = 34
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
