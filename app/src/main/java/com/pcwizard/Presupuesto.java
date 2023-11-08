@@ -1,5 +1,8 @@
 package com.pcwizard;
 
+import com.pcwizard.Componente.Componente;
+import com.pcwizard.Componente.Componentes.Enumerados.Chipset;
+import com.pcwizard.Componente.Componentes.Enumerados.Memoria;
 import com.pcwizard.Componente.Componentes.Microprocesador;
 import com.pcwizard.Componente.Componentes.PlacaBase;
 import com.pcwizard.Componente.Componentes.RAM;
@@ -12,6 +15,8 @@ import com.pcwizard.Componente.Componentes.SistemaOperativo;
 import com.pcwizard.Componente.Componentes.Monitor;
 import com.pcwizard.Componente.Componentes.Teclado;
 import com.pcwizard.Componente.Componentes.Raton;
+
+import java.util.ArrayList;
 
 
 public class Presupuesto {

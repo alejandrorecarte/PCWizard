@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.pcwizard.R;
 
@@ -29,6 +31,8 @@ public class PresupuestoActivity extends AppCompatActivity {
     TextView lChTeclado;
     TextView lChRaton;
     private Presupuesto presupuesto;
+    private BuscarFragment buscarFragment;
+    private String seleccion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,11 @@ public class PresupuestoActivity extends AppCompatActivity {
     public void atras (View view){
         Intent intent = new Intent(this,  MainActivity.class);
         startActivity(intent);
+    }
+
+    public void atrasBuscarFragment(View view){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().remove(buscarFragment).commit();
     }
 
     public void actualizarDatos(){
@@ -116,6 +125,11 @@ public class PresupuestoActivity extends AppCompatActivity {
         }else{
             lChMonitor.setText("No seleccionado");
         }
+        if(presupuesto.getTeclado() != null) {
+            lChTeclado.setText(presupuesto.getTeclado().getNombre());
+        }else{
+            lChTeclado.setText("No seleccionado");
+        }
         if(presupuesto.getRaton() != null) {
             lChRaton.setText(presupuesto.getRaton().getNombre());
         }else{
@@ -124,9 +138,110 @@ public class PresupuestoActivity extends AppCompatActivity {
 
     }
     public void buscarPlacaBase(View view){
+        seleccion = new String("Placa base");
         if (savedInstanceState == null) {
+            buscarFragment =  new BuscarFragment(seleccion);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragmentContainerView, new BuscarFragment()).commit();
+                    .add(R.id.fragmentContainerView, buscarFragment).commit();
+        }
+    }
+
+    public void buscarMicroprocesador(View view){
+        seleccion = new String("Microprocesador");
+        if (savedInstanceState == null) {
+            buscarFragment =  new BuscarFragment(new String(seleccion));
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentContainerView, buscarFragment).commit();
+        }
+    }
+
+    public void buscarRAM(View view){
+        seleccion = new String("Memoria RAM");
+        if (savedInstanceState == null) {
+            buscarFragment =  new BuscarFragment(seleccion);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragmentContainerView, buscarFragment).commit();
+        }
+    }
+
+    public void buscarCaja(View view){
+        seleccion = new String("Caja");
+        if (savedInstanceState == null) {
+            buscarFragment =  new BuscarFragment(seleccion);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragmentContainerView, buscarFragment).commit();
+        }
+    }
+
+    public void buscarRefrig(View view){
+        seleccion = new String("Refrigeración");
+        if (savedInstanceState == null) {
+            buscarFragment =  new BuscarFragment(seleccion);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragmentContainerView, buscarFragment).commit();
+        }
+    }
+
+    public void buscarAlimentacion(View view){
+        seleccion = new String("Alimentación");
+        if (savedInstanceState == null) {
+            buscarFragment =  new BuscarFragment(seleccion);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragmentContainerView, buscarFragment).commit();
+        }
+    }
+
+    public void buscarGráfica(View view){
+        seleccion = new String("Tarjeta gráfica");
+        if (savedInstanceState == null) {
+            buscarFragment =  new BuscarFragment(seleccion);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragmentContainerView, buscarFragment).commit();
+        }
+    }
+
+    public void buscarAlmacenamiento(View view){
+        seleccion = new String("Almacenamiento");
+        if (savedInstanceState == null) {
+            buscarFragment =  new BuscarFragment(seleccion);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragmentContainerView, buscarFragment).commit();
+        }
+    }
+
+    public void buscarOS(View view){
+        seleccion = new String("Sistema operativo");
+        if (savedInstanceState == null) {
+            buscarFragment =  new BuscarFragment(seleccion);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragmentContainerView, buscarFragment).commit();
+        }
+    }
+
+    public void buscarMonitor(View view){
+        seleccion = new String("Monitor");
+        if (savedInstanceState == null) {
+            buscarFragment =  new BuscarFragment(seleccion);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragmentContainerView, buscarFragment).commit();
+        }
+    }
+
+    public void buscarTeclado(View view){
+        seleccion = new String("Teclado");
+        if (savedInstanceState == null) {
+            buscarFragment =  new BuscarFragment(seleccion);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragmentContainerView, buscarFragment).commit();
+        }
+    }
+
+    public void buscarRaton(View view){
+        seleccion = new String("Ratón");
+        if (savedInstanceState == null) {
+            buscarFragment =  new BuscarFragment(seleccion);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragmentContainerView, buscarFragment).commit();
         }
     }
 

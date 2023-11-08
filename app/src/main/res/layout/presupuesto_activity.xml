@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="buscarRAM"
     tools:context="com.pcwizard.PresupuestoActivity">
 
     <ScrollView
@@ -57,9 +58,9 @@
 
                     <Button
                         android:id="@+id/bCompPlacaBase"
-                        android:layout_width="36dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:onClick="buscarPlacaBase"
                         android:text="Buscar" />
 
                 </TableRow>
@@ -111,7 +112,7 @@
                         android:id="@+id/bCompMicroprocesador"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:onClick="buscarMicroprocesador"
                         android:text="Buscar" />
 
                 </TableRow>
@@ -160,9 +161,9 @@
 
                     <Button
                         android:id="@+id/bCompRAM"
+                        android:onClick="buscarRAM"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="Buscar" />
 
                 </TableRow>
@@ -213,7 +214,7 @@
                         android:id="@+id/bCompCaja"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:onClick="buscarCaja"
                         android:text="Buscar" />
 
                 </TableRow>
@@ -264,7 +265,7 @@
                         android:id="@+id/bCompRefrig"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:onClick="buscarRefrig"
                         android:text="Buscar" />
 
                 </TableRow>
@@ -315,7 +316,7 @@
                         android:id="@+id/bCompAlimentacion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:onClick="buscarAlimentacion"
                         android:text="Buscar" />
 
                 </TableRow>
@@ -366,7 +367,7 @@
                         android:id="@+id/bCompGrafica"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:onClick="buscarGráfica"
                         android:text="Buscar" />
 
                 </TableRow>
@@ -417,7 +418,7 @@
                         android:id="@+id/bCompAlmacenamiento"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:onClick="buscarAlmacenamiento"
                         android:text="Buscar" />
 
                 </TableRow>
@@ -466,9 +467,9 @@
 
                     <Button
                         android:id="@+id/bCompOS"
+                        android:onClick="buscarOS"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="Buscar" />
 
                 </TableRow>
@@ -517,9 +518,9 @@
 
                     <Button
                         android:id="@+id/bCompMonitor"
+                        android:onClick="buscarMonitor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="Buscar" />
 
                 </TableRow>
@@ -568,9 +569,9 @@
 
                     <Button
                         android:id="@+id/bCompTeclado"
+                        android:onClick="buscarTeclado"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="Buscar" />
 
                 </TableRow>
@@ -619,9 +620,9 @@
 
                     <Button
                         android:id="@+id/bCompRaton"
+                        android:onClick="buscarRaton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="Buscar" />
 
                 </TableRow>
@@ -668,11 +669,11 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:layout_width="406dp"
-        android:layout_height="655dp"
-        android:onClick="buscarPlacaBase"
+        android:layout_width="412dp"
+        android:layout_height="473dp"
+        android:foregroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

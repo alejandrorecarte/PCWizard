@@ -30,4 +30,11 @@ public class PlacaBase extends Componente {
     public void setMemoria(Memoria memoria) {
         this.memoria = memoria;
     }
+
+    @Override
+    public String toString(){
+        return ("Nombre: "+ getNombre() +
+                "\nChipset: " + getChipset().name() +
+                "\nMemoria: " +  getMemoria().name());
+    }
 }

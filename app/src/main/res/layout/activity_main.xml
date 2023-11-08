@@ -22,21 +22,24 @@
             android:layout_height="100dp"
             android:layout_marginTop="0dp"
             android:onClick="nuevoPresupuesto"
-            android:text="Nuevo presupuesto" />
+            android:text="Nuevo presupuesto"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/misPresupuestos"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="30dp"
-            android:text="Mis presupuestos" />
+            android:text="Mis presupuestos"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/buscarComponente"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="30dp"
-            android:text="Buscar componente" />
+            android:text="Buscar componente"
+            android:textSize="24sp" />
     </LinearLayout>
 
     <TextView
