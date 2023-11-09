@@ -1,8 +1,5 @@
 package com.pcwizard;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -18,7 +15,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.pcwizard.R;
-import com.pcwizard.Componente.Componente;
 import com.pcwizard.Componente.Componentes.Alimentacion;
 import com.pcwizard.Componente.Componentes.Caja;
 import com.pcwizard.Componente.Componentes.Grafica;
@@ -36,9 +32,10 @@ import java.util.ArrayList;
 public class BuscarFragment extends Fragment {
 
     TextView lComponenteBuscar;
-    Button bAtrasComponente;
+    Button bAtras;
     private String seleccion;
     private ComponenteFragment componenteFragment;
+    public BuscarFragment buscarFragment = this;
 
     public BuscarFragment(String seleccion) {
         this.seleccion = seleccion;
@@ -55,74 +52,74 @@ public class BuscarFragment extends Fragment {
                 case "Placa base":
                     if (MainActivity.componentes.get(i) instanceof PlacaBase) {
                         items.add(MainActivity.componentes.get(i).getNombre());
-                        break;
                     }
+                    break;
                 case "Microprocesador":
                     if (MainActivity.componentes.get(i) instanceof Microprocesador) {
                         items.add(MainActivity.componentes.get(i).getNombre());
-                        break;
                     }
+                    break;
                 case "Memoria RAM":
                     if (MainActivity.componentes.get(i) instanceof RAM) {
                         items.add(MainActivity.componentes.get(i).getNombre());
-                        break;
                     }
+                    break;
                 case "Caja":
                     if (MainActivity.componentes.get(i) instanceof Caja) {
                         items.add(MainActivity.componentes.get(i).getNombre());
-                        break;
                     }
+                    break;
                 case "Refrigeración":
                     if (MainActivity.componentes.get(i) instanceof Refrigeracion) {
                         items.add(MainActivity.componentes.get(i).getNombre());
-                        break;
                     }
+                    break;
                 case "Alimentación":
                     if (MainActivity.componentes.get(i) instanceof Alimentacion) {
                         items.add(MainActivity.componentes.get(i).getNombre());
-                        break;
                     }
+                    break;
                 case "Tarejeta Gráfica":
                     if (MainActivity.componentes.get(i) instanceof Grafica) {
                         items.add(MainActivity.componentes.get(i).getNombre());
-                        break;
                     }
+                    break;
                 case "Sistema operativo":
                     if (MainActivity.componentes.get(i) instanceof SistemaOperativo) {
                         items.add(MainActivity.componentes.get(i).getNombre());
-                        break;
                     }
+                    break;
                 case "Monitor":
                     if (MainActivity.componentes.get(i) instanceof Monitor) {
                         items.add(MainActivity.componentes.get(i).getNombre());
-                        break;
                     }
+                    break;
                 case "Teclado":
                     if (MainActivity.componentes.get(i) instanceof Teclado) {
                         items.add(MainActivity.componentes.get(i).getNombre());
-                        break;
                     }
+                    break;
                 case "Ratón":
                     if (MainActivity.componentes.get(i) instanceof Raton) {
                         items.add(MainActivity.componentes.get(i).getNombre());
-                        break;
                     }
+                    break;
             }
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1, items);
 
-        ListView listView = view.findViewById(R.id.list_view);
+        ListView listView = view.findViewById(R.id.listPrecios);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String item = (String) adapterView.getItemAtPosition(position);
-                componenteFragment = new ComponenteFragment(item);
+                componenteFragment = new ComponenteFragment(item, seleccion, buscarFragment);
                 FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragmentContainerView, componenteFragment);
+                fragmentTransaction.add(R.id.fragmentContainerView, componenteFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
@@ -135,14 +132,13 @@ public class BuscarFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         lComponenteBuscar = view.findViewById(R.id.lComponenteBuscar);
         lComponenteBuscar.setText(seleccion);
-        bAtrasComponente = view.findViewById(R.id.bAtrasComp);
+        bAtras = view.findViewById(R.id.bAtrasPrecios);
 
-        if(bAtrasComponente != null) {
-            bAtrasComponente.setOnClickListener(new View.OnClickListener() {
+        if(bAtras != null) {
+            bAtras.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    FragmentManager fragmentManager = getChildFragmentManager();
-                    fragmentManager.beginTransaction().remove(componenteFragment).commit();
+                    requireActivity().getSupportFragmentManager().beginTransaction().remove(buscarFragment).commit();
                 }
             });
         }

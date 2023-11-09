@@ -1,13 +1,23 @@
 package com.pcwizard.Componente.Componentes;
 
+import android.util.Pair;
+
 import com.pcwizard.Componente.Componente;
 import com.pcwizard.Componente.Componentes.Enumerados.Chipset;
 import com.pcwizard.Componente.Componentes.Enumerados.Memoria;
+
+import java.util.ArrayList;
 
 public class PlacaBase extends Componente {
 
     private Chipset chipset;
     private Memoria memoria;
+
+    public PlacaBase(String nombre, ArrayList<Pair<String, Double>> precio, Memoria memoria, Chipset chipset) {
+        super(nombre, precio);
+        this.chipset = chipset;
+        this.memoria = memoria;
+    }
 
     public PlacaBase(String nombre, Memoria memoria, Chipset chipset) {
         super(nombre);

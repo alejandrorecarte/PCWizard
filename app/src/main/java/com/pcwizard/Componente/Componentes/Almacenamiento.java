@@ -1,12 +1,23 @@
 package com.pcwizard.Componente.Componentes;
 
+import android.util.Pair;
+
 import com.pcwizard.Componente.Componente;
+
+import java.util.ArrayList;
 
 public class Almacenamiento extends Componente {
 
     private int capacidad;
     private int velocidadLectura;
     private int velocidadEscritura;
+
+    public Almacenamiento(String nombre, ArrayList<Pair<String, Double>> precio, int capacidad, int velocidadLectura, int velocidadEscritura) {
+        super(nombre, precio);
+        this.capacidad = capacidad;
+        this.velocidadLectura = velocidadLectura;
+        this.velocidadEscritura = velocidadEscritura;
+    }
 
     public Almacenamiento(String nombre, int capacidad, int velocidadLectura, int velocidadEscritura) {
         super(nombre);
@@ -37,5 +48,13 @@ public class Almacenamiento extends Componente {
 
     public void setVelocidadEscritura(int velocidadEscritura) {
         this.velocidadEscritura = velocidadEscritura;
+    }
+
+    @Override
+    public String toString(){
+        return ("Nombre: "+ getNombre() +
+                "\nCapacidad: " + getCapacidad() + "GB" +
+                "\nVelocidad lectura: " +  getVelocidadLectura() + "MB/s" +
+                "\nVelocidad escritura: " + getVelocidadEscritura() + "MB/s");
     }
 }

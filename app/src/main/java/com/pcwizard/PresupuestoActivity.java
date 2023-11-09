@@ -17,20 +17,20 @@ public class PresupuestoActivity extends AppCompatActivity {
 
     private Bundle savedInstanceState;
     Button bAtras;
-    TextView lNombrePresupuesto;
-    TextView lChPlacaBase;
-    TextView lChMicroprocesador;
-    TextView lChRAM;
-    TextView lChCaja;
-    TextView lChRefrig;
-    TextView lChAlimentacion;
-    TextView lChGrafica;
-    TextView lChAlmacenamiento;
-    TextView lChOS;
-    TextView lChMonitor;
-    TextView lChTeclado;
-    TextView lChRaton;
-    private Presupuesto presupuesto;
+    static TextView lNombrePresupuesto;
+    static TextView lChPlacaBase;
+    static TextView lChMicroprocesador;
+    static TextView lChRAM;
+    static TextView lChCaja;
+    static TextView lChRefrig;
+    static TextView lChAlimentacion;
+    static TextView lChGrafica;
+    static TextView lChAlmacenamiento;
+    static TextView lChOS;
+    static TextView lChMonitor;
+    static TextView lChTeclado;
+    static TextView lChRaton;
+    private static Presupuesto presupuesto;
     private BuscarFragment buscarFragment;
     private String seleccion;
 
@@ -64,12 +64,7 @@ public class PresupuestoActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void atrasBuscarFragment(View view){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().remove(buscarFragment).commit();
-    }
-
-    public void actualizarDatos(){
+    public static void actualizarDatos(){
         if(presupuesto.getNombre() != null){
             lNombrePresupuesto.setText(presupuesto.getNombre());
         }else{
@@ -245,7 +240,7 @@ public class PresupuestoActivity extends AppCompatActivity {
         }
     }
 
-    public Presupuesto getPresupuesto() {
+    public static Presupuesto getPresupuesto() {
         return presupuesto;
     }
 

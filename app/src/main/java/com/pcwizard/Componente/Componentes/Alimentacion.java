@@ -1,18 +1,26 @@
 package com.pcwizard.Componente.Componentes;
 
+import android.util.Pair;
+
 import com.pcwizard.Componente.Componente;
+
+import java.util.ArrayList;
 
 public class Alimentacion extends Componente {
 
     private int potencia;
     private boolean modular;
-    private double precio;
 
-    public Alimentacion(String nombre, int potencia, boolean modular, double precio) {
+    public Alimentacion(String nombre, ArrayList<Pair<String, Double>> precio, int potencia, boolean modular) {
+        super(nombre, precio);
+        this.potencia = potencia;
+        this.modular = modular;
+    }
+
+    public Alimentacion(String nombre, int potencia, boolean modular) {
         super(nombre);
         this.potencia = potencia;
         this.modular = modular;
-        this.precio = precio;
     }
 
     public int getPotencia() {
@@ -31,11 +39,10 @@ public class Alimentacion extends Componente {
         this.modular = modular;
     }
 
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    @Override
+    public String toString(){
+        return ("Nombre: "+ getNombre() +
+                "\nPotencia: " + getPotencia() +
+                "\nModular: " +  isModular());
     }
 }
