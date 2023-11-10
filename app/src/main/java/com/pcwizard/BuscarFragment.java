@@ -36,9 +36,11 @@ public class BuscarFragment extends Fragment {
     private String seleccion;
     private ComponenteFragment componenteFragment;
     public BuscarFragment buscarFragment = this;
+    public ArrayAdapter<String> adapter;
 
     public BuscarFragment(String seleccion) {
         this.seleccion = seleccion;
+
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +48,7 @@ public class BuscarFragment extends Fragment {
         View view = inflater.inflate(R.layout.buscar_fragment, container, false);
 
         ArrayList<String> items = new ArrayList<String>();
+
 
         for(int i = 0; i < MainActivity.componentes.size(); i++) {
             switch (seleccion) {
@@ -106,11 +109,12 @@ public class BuscarFragment extends Fragment {
                     break;
             }
         }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
+        adapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1, items);
+        adapter.notifyDataSetChanged();
 
         ListView listView = view.findViewById(R.id.listPrecios);
+
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -132,7 +136,7 @@ public class BuscarFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         lComponenteBuscar = view.findViewById(R.id.lComponenteBuscar);
         lComponenteBuscar.setText(seleccion);
-        bAtras = view.findViewById(R.id.bAtrasPrecios);
+        bAtras = view.findViewById(R.id.bAtrasPresupuestosGuardados);
 
         if(bAtras != null) {
             bAtras.setOnClickListener(new View.OnClickListener() {

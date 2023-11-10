@@ -55,4 +55,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         presupuestos.add(presupuesto);
     }
+
+    public void misPresupuestos(View view){
+        Intent intent = new Intent(this, PresupuestosGuardadosActivity.class);
+        startActivity(intent);
+    }
 }

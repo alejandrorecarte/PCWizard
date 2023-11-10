@@ -7,8 +7,8 @@
     android:background="#FFFFFF">
 
     <ScrollView
-        android:layout_width="354dp"
-        android:layout_height="402dp"
+        android:layout_width="411dp"
+        android:layout_height="371dp"
         android:layout_marginTop="175dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -21,8 +21,8 @@
 
             <ListView
                 android:id="@+id/listPrecios"
-                android:layout_width="366dp"
-                android:layout_height="407dp"
+                android:layout_width="wrap_content"
+                android:layout_height="403dp"
                 android:padding="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/bAtrasPrecios"
+        android:id="@+id/bAtrasPresupuestosGuardados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -51,7 +51,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.377"
-        app:layout_constraintStart_toEndOf="@+id/bAtrasPrecios"
+        app:layout_constraintStart_toEndOf="@+id/bAtrasPresupuestosGuardados"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
