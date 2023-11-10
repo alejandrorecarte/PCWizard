@@ -1,5 +1,6 @@
 package com.pcwizard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -142,9 +143,23 @@ public class PresupuestosGuardadosActivity extends AppCompatActivity {
             }
         });
 
+        bEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.presupuestos.remove(MainActivity.presupuestos.remove(spinner.getSelectedItemPosition()));
+                actualizarPresupuestos();
+            }
+        });
+
 
     }
-
+    public void modificar(View view){
+        MainActivity.presupuesto = MainActivity.presupuestos.get(spinner.getSelectedItemPosition());
+        Intent intent = new Intent(this, PresupuestoActivity.class);
+        startActivity(intent);
+        MainActivity.presupuestos.remove(spinner.getSelectedItemPosition());
+        MainActivity.presupuestos.add(MainActivity.presupuesto);
+    }
     public void actualizarPresupuestos(){
         List<String> items = new ArrayList<>();
 

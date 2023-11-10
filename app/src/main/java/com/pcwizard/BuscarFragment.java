@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.pcwizard.R;
+import com.pcwizard.Componente.Componente;
 import com.pcwizard.Componente.Componentes.Alimentacion;
 import com.pcwizard.Componente.Componentes.Caja;
 import com.pcwizard.Componente.Componentes.Grafica;
@@ -40,7 +41,10 @@ public class BuscarFragment extends Fragment {
 
     public BuscarFragment(String seleccion) {
         this.seleccion = seleccion;
+    }
 
+    public BuscarFragment () {
+        this.seleccion = "Componente";
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -107,13 +111,17 @@ public class BuscarFragment extends Fragment {
                         items.add(MainActivity.componentes.get(i).getNombre());
                     }
                     break;
+                case "Componente":
+                    if (MainActivity.componentes.get(i) instanceof Componente){
+                        items.add(MainActivity.componentes.get(i).getNombre());
+                    }
             }
         }
         adapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1, items);
         adapter.notifyDataSetChanged();
 
-        ListView listView = view.findViewById(R.id.listPrecios);
+        ListView listView = view.findViewById(R.id.listBuscar);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

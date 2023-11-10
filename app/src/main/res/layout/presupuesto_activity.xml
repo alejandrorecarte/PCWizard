@@ -7,34 +7,6 @@
     android:onClick="buscarRAM"
     tools:context="com.pcwizard.PresupuestoActivity">
 
-    <LinearLayout
-        android:layout_width="414dp"
-        android:layout_height="75dp"
-        android:gravity="center|center_horizontal"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/fragmentContainerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2">
-
-        <TextView
-            android:id="@+id/lPrecioPresupuesto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="60dp"
-            android:text="0.00€"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/bGuardar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:onClick="guardar"
-            android:text="Guardar" />
-
-    </LinearLayout>
-
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
@@ -661,6 +633,34 @@
                 android:background="?android:attr/listDivider" />
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="414dp"
+        android:layout_height="75dp"
+        android:gravity="center|center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/fragmentContainerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2">
+
+        <TextView
+            android:id="@+id/lPrecioPresupuesto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="60dp"
+            android:text="0.00€"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/bGuardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:onClick="guardar"
+            android:text="Guardar" />
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/etNombrePresupuesto"

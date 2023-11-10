@@ -22,11 +22,13 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Presupuesto> presupuestos = new ArrayList<Presupuesto>();
     public static ArrayList<Componente> componentes = new ArrayList<>();
     public static Presupuesto presupuesto;
+    public static Bundle savedInstanceState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.savedInstanceState = savedInstanceState;
 
         componentes.add(new PlacaBase("Asus TUF GAMING B550-PLUS AMD", Memoria.DDR4, Chipset.AMD));
         componentes.get(componentes.size()-1).getVendedor().add(new Pair<>("PC Componentes", 96.99));

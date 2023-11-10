@@ -55,7 +55,7 @@ public class PreciosFragment extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1, items);
 
-        ListView listView = view.findViewById(R.id.listPrecios);
+        ListView listView = view.findViewById(R.id.listBuscar);
         listView.setAdapter(adapter);
 
         listView.setAdapter(adapter);

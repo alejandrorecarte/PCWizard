@@ -20,7 +20,7 @@
             android:layout_height="wrap_content">
 
             <ListView
-                android:id="@+id/listPrecios"
+                android:id="@+id/listBuscar"
                 android:layout_width="wrap_content"
                 android:layout_height="403dp"
                 android:padding="30dp"

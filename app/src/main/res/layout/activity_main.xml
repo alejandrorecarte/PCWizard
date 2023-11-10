@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context="com.pcwizard.MainActivity">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerViewMainActivity"
+        android:layout_width="412dp"
+        android:layout_height="473dp"
+        android:foregroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="357dp"
@@ -35,11 +44,11 @@
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/buscarComponente"
+            android:id="@+id/bGuiaMontaje"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="30dp"
-            android:text="Buscar componente"
+            android:text="Guías de montaje"
             android:textSize="24sp" />
     </LinearLayout>
 
