@@ -72,51 +72,51 @@ public class PreciosFragment extends Fragment {
                 Presupuesto p = PresupuestoActivity.getPresupuesto();
                         if (componente instanceof PlacaBase) {
                             p.setPlacaBase((PlacaBase) componente);
-                            PresupuestoActivity.setVendedorEscogido(position, 0);
+                            PresupuestoActivity.getPresupuesto().setVendedorEscogido(position, 0);
                         }
                         if (componente instanceof Microprocesador) {
                             p.setMicroprocesador((Microprocesador) componente);
-                            PresupuestoActivity.setVendedorEscogido(position, 1);
+                            PresupuestoActivity.getPresupuesto().setVendedorEscogido(position, 1);
                         }
                         if (componente instanceof RAM) {
                             p.setRam((RAM) componente);
-                            PresupuestoActivity.setVendedorEscogido(position, 2);
+                            PresupuestoActivity.getPresupuesto().setVendedorEscogido(position, 2);
                         }
                         if (componente instanceof Caja) {
                             p.setCaja((Caja) componente);
-                            PresupuestoActivity.setVendedorEscogido(position, 3);
+                            PresupuestoActivity.getPresupuesto().setVendedorEscogido(position, 3);
                         }
                         if (componente instanceof Refrigeracion) {
                             p.setRefrigeracion((Refrigeracion) componente);
-                            PresupuestoActivity.setVendedorEscogido(position, 4);
+                            PresupuestoActivity.getPresupuesto().setVendedorEscogido(position, 4);
                         }
                         if (componente instanceof Alimentacion) {
                             p.setAlimentacion((Alimentacion) componente);
-                            PresupuestoActivity.setVendedorEscogido(position, 5);
+                            PresupuestoActivity.getPresupuesto().setVendedorEscogido(position, 5);
                         }
                         if (componente instanceof Grafica) {
                             p.setGrafica((Grafica) componente);
-                            PresupuestoActivity.setVendedorEscogido(position, 6);
+                            PresupuestoActivity.getPresupuesto().setVendedorEscogido(position, 6);
                         }
                         if (componente instanceof Almacenamiento) {
                             p.setAlmacenamiento((Almacenamiento) componente);
-                            PresupuestoActivity.setVendedorEscogido(position, 7);
+                            PresupuestoActivity.getPresupuesto().setVendedorEscogido(position, 7);
                         }
                         if (componente instanceof SistemaOperativo) {
                             p.setSistemaOperativo((SistemaOperativo) componente);
-                            PresupuestoActivity.setVendedorEscogido(position, 8);
+                            PresupuestoActivity.getPresupuesto().setVendedorEscogido(position, 8);
                         }
                         if (componente instanceof Monitor) {
                             p.setMonitor((Monitor) componente);
-                            PresupuestoActivity.setVendedorEscogido(position, 9);
+                            PresupuestoActivity.getPresupuesto().setVendedorEscogido(position, 9);
                         }
                         if (componente instanceof Teclado) {
                             p.setTeclado((Teclado) componente);
-                            PresupuestoActivity.setVendedorEscogido(position, 10);
+                            PresupuestoActivity.getPresupuesto().setVendedorEscogido(position, 10);
                         }
                         if (componente instanceof Raton) {
                             p.setRaton((Raton) componente);
-                            PresupuestoActivity.setVendedorEscogido(position, 11);
+                            PresupuestoActivity.getPresupuesto().setVendedorEscogido(position, 11);
                         }
                 PresupuestoActivity.actualizarDatos();
                 requireActivity().getSupportFragmentManager().beginTransaction().remove(preciosFragment).commit();

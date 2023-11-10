@@ -34,6 +34,7 @@ public class Presupuesto {
     private Monitor monitor;
     private Teclado teclado;
     private Raton raton;
+    private int[] vendedorEscogido = new int[12];
 
     public Presupuesto() {
     }
@@ -155,5 +156,48 @@ public class Presupuesto {
 
     public void setRaton(Raton raton) {
         this.raton = raton;
+    }
+
+    public void setVendedorEscogido(int vendedor, int i){
+        vendedorEscogido[i] = vendedor;
+    }
+
+    public int[] getVendedorEscogido() {
+        return vendedorEscogido;
+    }
+
+    public double getPrecioTotal(){
+        double precioTotal = 0;
+        if(getPlacaBase() != null) {
+            precioTotal += getPlacaBase().getVendedor().get(getVendedorEscogido()[0]).second;
+        }
+        if(getMicroprocesador() != null) {
+        precioTotal += getMicroprocesador().getVendedor().get(getVendedorEscogido()[1]).second;
+        }
+        if(getRam() != null) {
+        precioTotal += getRam().getVendedor().get(getVendedorEscogido()[2]).second;
+        }
+        if(getCaja() != null) {precioTotal += getCaja().getVendedor().get(getVendedorEscogido()[3]).second;
+        precioTotal += getRefrigeracion().getVendedor().get(getVendedorEscogido()[4]).second;
+        }
+        if(getAlimentacion() != null) {
+        precioTotal += getAlimentacion().getVendedor().get(getVendedorEscogido()[5]).second;
+        }
+        if(getGrafica() != null) {
+        precioTotal += getGrafica().getVendedor().get(getVendedorEscogido()[6]).second;
+        }
+        if(getSistemaOperativo() != null) {precioTotal += getAlmacenamiento().getVendedor().get(getVendedorEscogido()[7]).second;
+        precioTotal += getSistemaOperativo().getVendedor().get(getVendedorEscogido()[8]).second;
+        }
+        if(getSistemaOperativo() != null) {
+        precioTotal += getSistemaOperativo().getVendedor().get(getVendedorEscogido()[9]).second;
+        }
+        if(getTeclado() != null) {
+        precioTotal += getTeclado().getVendedor().get(getVendedorEscogido()[10]).second;
+        }
+        if(getRaton() != null) {
+            precioTotal += getRaton().getVendedor().get(getVendedorEscogido()[11]).second;
+        }
+        return precioTotal;
     }
 }

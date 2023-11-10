@@ -1,7 +1,7 @@
 package com.pcwizard;
 
-import
-        android.os.Bundle;
+
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -34,8 +34,6 @@ public class PresupuestoActivity extends AppCompatActivity {
     static TextView lChTeclado;
     static TextView lChRaton;
     static TextView lPrecioPresupuesto;
-    static int[] vendedorEscogido = new int[12];
-    static double precioTotal;
     private static Presupuesto presupuesto;
     private BuscarFragment buscarFragment;
     private String seleccion;
@@ -93,86 +91,75 @@ public class PresupuestoActivity extends AppCompatActivity {
     }
 
     public static void actualizarDatos(){
-        precioTotal = 0;
         if(presupuesto.getNombre() != null){
             etNombrePresupuesto.setText(presupuesto.getNombre());
         }else{
             etNombrePresupuesto.setText("Sin nombre");
         }
         if(presupuesto.getPlacaBase() != null) {
-            lChPlacaBase.setText(presupuesto.getPlacaBase().getNombre() + " Precio: "+ presupuesto.getPlacaBase().getVendedor().get(vendedorEscogido[0]).second + "€");
-            precioTotal += presupuesto.getPlacaBase().getVendedor().get(vendedorEscogido[0]).second;
+            lChPlacaBase.setText(presupuesto.getPlacaBase().getNombre() + " Precio: "+ presupuesto.getPlacaBase().getVendedor().get(presupuesto.getVendedorEscogido()[0]).second + "€");
         }else{
             lChPlacaBase.setText("No seleccionado");
         }
         if(presupuesto.getMicroprocesador() != null) {
-            lChMicroprocesador.setText(presupuesto.getMicroprocesador().getNombre()+ " Precio: "+ presupuesto.getMicroprocesador().getVendedor().get(vendedorEscogido[1]).second + "€");
-            precioTotal += presupuesto.getMicroprocesador().getVendedor().get(vendedorEscogido[1]).second;
+            lChMicroprocesador.setText(presupuesto.getMicroprocesador().getNombre()+ " Precio: "+ presupuesto.getMicroprocesador().getVendedor().get(presupuesto.getVendedorEscogido()[1]).second + "€");
         }else{
             lChMicroprocesador.setText("No seleccionado");
         }
         if(presupuesto.getRam() != null) {
-            lChRAM.setText(presupuesto.getRam().getNombre() + " Precio: "+ presupuesto.getRam().getVendedor().get(vendedorEscogido[2]).second + "€");
-            precioTotal += presupuesto.getRam().getVendedor().get(vendedorEscogido[2]).second;
+            lChRAM.setText(presupuesto.getRam().getNombre() + " Precio: "+ presupuesto.getRam().getVendedor().get(presupuesto.getVendedorEscogido()[2]).second + "€");
         }else{
             lChRAM.setText("No seleccionado");
         }
         if(presupuesto.getCaja() != null) {
-            lChCaja.setText(presupuesto.getCaja().getNombre() + " Precio: "+ presupuesto.getCaja().getVendedor().get(vendedorEscogido[3]).second + "€");
-            precioTotal += presupuesto.getCaja().getVendedor().get(vendedorEscogido[3]).second;
+            lChCaja.setText(presupuesto.getCaja().getNombre() + " Precio: "+ presupuesto.getCaja().getVendedor().get(presupuesto.getVendedorEscogido()[3]).second + "€");
         }else{
             lChCaja.setText("No seleccionado");
         }
         if(presupuesto.getRefrigeracion() != null) {
-            lChRefrig.setText(presupuesto.getRefrigeracion().getNombre() + " Precio: "+ presupuesto.getRefrigeracion().getVendedor().get(vendedorEscogido[4]).second + "€");
-            precioTotal += presupuesto.getRefrigeracion().getVendedor().get(vendedorEscogido[4]).second;
+            lChRefrig.setText(presupuesto.getRefrigeracion().getNombre() + " Precio: "+ presupuesto.getRefrigeracion().getVendedor().get(presupuesto.getVendedorEscogido()[4]).second + "€");
         }else{
             lChRefrig.setText("No seleccionado");
         }
         if(presupuesto.getAlimentacion() != null) {
-            lChAlimentacion.setText(presupuesto.getAlimentacion().getNombre() + " Precio: "+ presupuesto.getAlimentacion().getVendedor().get(vendedorEscogido[5]).second + "€");
-            precioTotal += presupuesto.getAlimentacion().getVendedor().get(vendedorEscogido[5]).second;
+            lChAlimentacion.setText(presupuesto.getAlimentacion().getNombre() + " Precio: "+ presupuesto.getAlimentacion().getVendedor().get(presupuesto.getVendedorEscogido()[5]).second + "€");
         }else{
             lChAlimentacion.setText("No seleccionado");
         }
         if(presupuesto.getGrafica() != null) {
-            lChGrafica.setText(presupuesto.getGrafica().getNombre() + " Precio: "+ presupuesto.getGrafica().getVendedor().get(vendedorEscogido[6]).second + "€");
-            precioTotal += presupuesto.getGrafica().getVendedor().get(vendedorEscogido[6]).second;
+            lChGrafica.setText(presupuesto.getGrafica().getNombre() + " Precio: "+ presupuesto.getGrafica().getVendedor().get(presupuesto.getVendedorEscogido()[6]).second + "€");
         }else{
             lChGrafica.setText("No seleccionado");
         }
         if(presupuesto.getAlmacenamiento() != null) {
-            lChAlmacenamiento.setText(presupuesto.getAlmacenamiento().getNombre() + " Precio: "+ presupuesto.getAlmacenamiento().getVendedor().get(vendedorEscogido[7]).second + "€");
-            precioTotal += presupuesto.getAlmacenamiento().getVendedor().get(vendedorEscogido[7]).second;
+            lChAlmacenamiento.setText(presupuesto.getAlmacenamiento().getNombre() + " Precio: "+ presupuesto.getAlmacenamiento().getVendedor().get(presupuesto.getVendedorEscogido()[7]).second + "€");
         }else{
             lChAlmacenamiento.setText("No seleccionado");
         }
         if(presupuesto.getSistemaOperativo() != null) {
-            lChOS.setText(presupuesto.getSistemaOperativo().getNombre() + " Precio: "+ presupuesto.getSistemaOperativo().getVendedor().get(vendedorEscogido[8]).second + "€");
-            precioTotal += presupuesto.getSistemaOperativo().getVendedor().get(vendedorEscogido[8]).second;
+            lChOS.setText(presupuesto.getSistemaOperativo().getNombre() + " Precio: "+ presupuesto.getSistemaOperativo().getVendedor().get(presupuesto.getVendedorEscogido()[8]).second + "€");
         }else{
             lChOS.setText("No seleccionado");
         }
         if(presupuesto.getMonitor() != null) {
-            lChMonitor.setText(presupuesto.getSistemaOperativo().getNombre() + " Precio: "+ presupuesto.getMonitor().getVendedor().get(vendedorEscogido[9]).second + "€");
-            precioTotal += presupuesto.getSistemaOperativo().getVendedor().get(vendedorEscogido[9]).second;
+            lChMonitor.setText(presupuesto.getSistemaOperativo().getNombre() + " Precio: "+ presupuesto.getMonitor().getVendedor().get(presupuesto.getVendedorEscogido()[9]).second + "€");
         }else{
             lChMonitor.setText("No seleccionado");
         }
         if(presupuesto.getTeclado() != null) {
-            lChTeclado.setText(presupuesto.getTeclado().getNombre() + " Precio: "+ presupuesto.getTeclado().getVendedor().get(vendedorEscogido[10]).second + "€");
-            precioTotal += presupuesto.getTeclado().getVendedor().get(vendedorEscogido[10]).second;
+            lChTeclado.setText(presupuesto.getTeclado().getNombre() + " Precio: "+ presupuesto.getTeclado().getVendedor().get(presupuesto.getVendedorEscogido()[10]).second + "€");
         }else{
             lChTeclado.setText("No seleccionado");
         }
         if(presupuesto.getRaton() != null) {
-            lChRaton.setText(presupuesto.getRaton().getNombre() + " Precio: "+ presupuesto.getRaton().getVendedor().get(vendedorEscogido[11]).second + "€");
-            precioTotal += presupuesto.getRaton().getVendedor().get(vendedorEscogido[11]).second;
+            lChRaton.setText(presupuesto.getRaton().getNombre() + " Precio: "+ presupuesto.getRaton().getVendedor().get(presupuesto.getVendedorEscogido()[11]).second + "€");
         }else{
             lChRaton.setText("No seleccionado");
         }
 
-        lPrecioPresupuesto.setText(String.valueOf(precioTotal) + "€");
+        if(presupuesto != null) {
+            lPrecioPresupuesto.setText(presupuesto.getPrecioTotal() + "€");
+        }
     }
     public void buscarPlacaBase(View view){
         seleccion = new String("Placa base");
@@ -284,10 +271,6 @@ public class PresupuestoActivity extends AppCompatActivity {
 
     public static Presupuesto getPresupuesto() {
         return presupuesto;
-    }
-
-    public static void setVendedorEscogido(int vendedor, int i){
-        vendedorEscogido[i] = vendedor;
     }
 
     public static void setPresupuesto(Presupuesto presupuesto) {
