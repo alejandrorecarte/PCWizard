@@ -12,15 +12,18 @@ public class Raton extends Componente {
     private boolean inalambrico;
     private boolean optico;
 
-    public Raton(String nombre, ArrayList<Pair<String, Double>> precio, int dpi, boolean inalambrico, boolean optico) {
-        super(nombre, precio);
+    public Raton() {
+    }
+
+    public Raton(String nombre, int idImagen, ArrayList<Pair<String, Double>> precio, int dpi, boolean inalambrico, boolean optico) {
+        super(nombre, idImagen, precio);
         this.dpi = dpi;
         this.inalambrico = inalambrico;
         this.optico = optico;
     }
 
-    public Raton(String nombre, int dpi, boolean inalambrico, boolean optico) {
-        super(nombre);
+    public Raton(String nombre, int idImagen, int dpi, boolean inalambrico, boolean optico) {
+        super(nombre, idImagen);
         this.dpi = dpi;
         this.inalambrico = inalambrico;
         this.optico = optico;

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pcwizard.R;
@@ -22,6 +23,7 @@ public class ComponenteFragment extends Fragment {
     TextView lComponente;
     Button bAtras;
     TextView lDescripcion;
+    ImageView iComponente;
     public String componente;
     public String seleccion;
     private Componente componenteSeleccionado;
@@ -39,6 +41,7 @@ public class ComponenteFragment extends Fragment {
         View view = inflater.inflate(R.layout.componente_fragment, container, false);
         lComponente = view.findViewById(R.id.lComponente);
         lDescripcion = view.findViewById(R.id.lDescripcion);
+        iComponente = view.findViewById(R.id.iComponente);
 
         if (lComponente != null) {
             lComponente.setText(componente);
@@ -49,6 +52,9 @@ public class ComponenteFragment extends Fragment {
                 if(lDescripcion != null) {
                     lDescripcion.setText(MainActivity.componentes.get(i).toString());
                     componenteSeleccionado = MainActivity.componentes.get(i);
+                }
+                if(iComponente != null) {
+                    iComponente.setImageResource(componenteSeleccionado.getIdImagen());
                 }
             }
         }

@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="buscarRAM"
+    android:background="#FFFFFF"
     tools:context="com.pcwizard.PresupuestoActivity">
 
     <ScrollView
@@ -12,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="575dp"
         android:layout_marginTop="80dp"
+        android:background="#FFFFFF"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="29dp">
 
@@ -32,7 +34,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1">
 
                     <TextView
@@ -50,17 +52,33 @@
 
                     <TextView
                         android:id="@+id/lChPlacaBase"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="No se ha podido cargar"
                         android:textSize="16sp" />
 
                     <Button
                         android:id="@+id/bCompPlacaBase"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pcwizard_blue"
                         android:onClick="buscarPlacaBase"
-                        android:text="Buscar" />
+                        android:text="Buscar"
+                        app:icon="@android:drawable/ic_menu_search" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lPrPlacaBase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No se ha podido cargar"
+                        android:textSize="16sp" />
                 </TableRow>
 
             </TableLayout>
@@ -108,11 +126,26 @@
 
                     <Button
                         android:id="@+id/bCompMicroprocesador"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pcwizard_blue"
                         android:onClick="buscarMicroprocesador"
-                        android:text="Buscar" />
+                        android:text="Buscar"
+                        app:icon="@android:drawable/ic_menu_search" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lPrMicroprocesador"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No se ha podido cargar"
+                        android:textSize="16sp" />
                 </TableRow>
             </TableLayout>
 
@@ -159,11 +192,26 @@
 
                     <Button
                         android:id="@+id/bCompRAM"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pcwizard_blue"
                         android:onClick="buscarRAM"
-                        android:text="Buscar" />
+                        android:text="Buscar"
+                        app:icon="@android:drawable/ic_menu_search" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lPrRAM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No se ha podido cargar"
+                        android:textSize="16sp" />
                 </TableRow>
             </TableLayout>
 
@@ -198,7 +246,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/lChCaja"
@@ -210,11 +258,26 @@
 
                     <Button
                         android:id="@+id/bCompCaja"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pcwizard_blue"
                         android:onClick="buscarCaja"
-                        android:text="Buscar" />
+                        android:text="Buscar"
+                        app:icon="@android:drawable/ic_menu_search" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lPrCaja"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No se ha podido cargar"
+                        android:textSize="16sp" />
                 </TableRow>
             </TableLayout>
 
@@ -261,11 +324,26 @@
 
                     <Button
                         android:id="@+id/bCompRefrig"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pcwizard_blue"
                         android:onClick="buscarRefrig"
-                        android:text="Buscar" />
+                        android:text="Buscar"
+                        app:icon="@android:drawable/ic_menu_search" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lPrRefrig"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No se ha podido cargar"
+                        android:textSize="16sp" />
                 </TableRow>
             </TableLayout>
 
@@ -312,11 +390,26 @@
 
                     <Button
                         android:id="@+id/bCompAlimentacion"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pcwizard_blue"
                         android:onClick="buscarAlimentacion"
-                        android:text="Buscar" />
+                        android:text="Buscar"
+                        app:icon="@android:drawable/ic_menu_search" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lPrAlimentacion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No se ha podido cargar"
+                        android:textSize="16sp" />
                 </TableRow>
             </TableLayout>
 
@@ -363,11 +456,26 @@
 
                     <Button
                         android:id="@+id/bCompGrafica"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pcwizard_blue"
                         android:onClick="buscarGráfica"
-                        android:text="Buscar" />
+                        android:text="Buscar"
+                        app:icon="@android:drawable/ic_menu_search" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lPrGrafica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No se ha podido cargar"
+                        android:textSize="16sp" />
                 </TableRow>
             </TableLayout>
 
@@ -414,11 +522,26 @@
 
                     <Button
                         android:id="@+id/bCompAlmacenamiento"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pcwizard_blue"
                         android:onClick="buscarAlmacenamiento"
-                        android:text="Buscar" />
+                        android:text="Buscar"
+                        app:icon="@android:drawable/ic_menu_search" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lPrAlmacenamiento"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No se ha podido cargar"
+                        android:textSize="16sp" />
                 </TableRow>
             </TableLayout>
 
@@ -465,11 +588,26 @@
 
                     <Button
                         android:id="@+id/bCompOS"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pcwizard_blue"
                         android:onClick="buscarOS"
-                        android:text="Buscar" />
+                        android:text="Buscar"
+                        app:icon="@android:drawable/ic_menu_search" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lPrOS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No se ha podido cargar"
+                        android:textSize="16sp" />
                 </TableRow>
             </TableLayout>
 
@@ -516,11 +654,26 @@
 
                     <Button
                         android:id="@+id/bCompMonitor"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pcwizard_blue"
                         android:onClick="buscarMonitor"
-                        android:text="Buscar" />
+                        android:text="Buscar"
+                        app:icon="@android:drawable/ic_menu_search" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lPrMonitor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No se ha podido cargar"
+                        android:textSize="16sp" />
                 </TableRow>
             </TableLayout>
 
@@ -567,11 +720,26 @@
 
                     <Button
                         android:id="@+id/bCompTeclado"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pcwizard_blue"
                         android:onClick="buscarTeclado"
-                        android:text="Buscar" />
+                        android:text="Buscar"
+                        app:icon="@android:drawable/ic_menu_search" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lPrTeclado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No se ha podido cargar"
+                        android:textSize="16sp" />
                 </TableRow>
             </TableLayout>
 
@@ -618,11 +786,26 @@
 
                     <Button
                         android:id="@+id/bCompRaton"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pcwizard_blue"
                         android:onClick="buscarRaton"
-                        android:text="Buscar" />
+                        android:text="Buscar"
+                        app:icon="@android:drawable/ic_menu_search" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lPrRaton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No se ha podido cargar"
+                        android:textSize="16sp" />
                 </TableRow>
             </TableLayout>
 
@@ -635,7 +818,7 @@
     </ScrollView>
 
     <LinearLayout
-        android:layout_width="414dp"
+        android:layout_width="match_parent"
         android:layout_height="75dp"
         android:gravity="center|center_horizontal"
         android:orientation="horizontal"
@@ -654,44 +837,48 @@
 
         <Button
             android:id="@+id/bGuardar"
+            style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
+            android:backgroundTint="@color/pcwizard_blue"
             android:onClick="guardar"
-            android:text="Guardar" />
+            android:text="Guardar"
+            app:icon="@android:drawable/ic_menu_save" />
 
     </LinearLayout>
 
     <EditText
         android:id="@+id/etNombrePresupuesto"
-        android:layout_width="wrap_content"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="27dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
         android:ems="10"
         android:inputType="text"
         android:text="No se ha podido cargar"
         android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toEndOf="@+id/bAtras"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/bAtras"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/pcwizard_blue"
         android:onClick="atras"
         android:text="Atrás"
+        app:icon="@android:drawable/ic_menu_revert"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0" />/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"

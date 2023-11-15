@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +24,7 @@ public class PresupuestosGuardadosActivity extends AppCompatActivity {
     static Button bModificar;
     static Button bEliminar;
     static TextView lDescripcionPresupuesto;
+    PresupuestosGuardadosActivity pga = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,7 @@ public class PresupuestosGuardadosActivity extends AppCompatActivity {
         spinner = findViewById(R.id.spinner);
         actualizarPresupuestos();
 
-        bAtras = findViewById(R.id.bAtrasPresupuestosGuardados);
+        bAtras = findViewById(R.id.bAtrasPrecios);
         bModificar = findViewById(R.id.bModificarPresupuestos);
         bEliminar = findViewById(R.id.bEliminarPresupuesto);
         lDescripcionPresupuesto = findViewById(R.id.lDescripcionPresupuesto);
@@ -47,7 +49,6 @@ public class PresupuestosGuardadosActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String itemSeleccionado = parent.getItemAtPosition(position).toString();
                 Presupuesto presupuesto = MainActivity.presupuestos.get(position);
                 ArrayList<String> descripciones = new ArrayList<>();
                 if(presupuesto.getPlacaBase() != null) {
@@ -147,7 +148,9 @@ public class PresupuestosGuardadosActivity extends AppCompatActivity {
         bEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String nombre = MainActivity.presupuestos.get(spinner.getSelectedItemPosition()).getNombre();
                 MainActivity.presupuestos.remove(MainActivity.presupuestos.remove(spinner.getSelectedItemPosition()));
+                Toast.makeText(pga, "Se ha eliminado el presupuesto " + nombre, Toast.LENGTH_SHORT).show();
                 actualizarPresupuestos();
             }
         });
@@ -160,12 +163,15 @@ public class PresupuestosGuardadosActivity extends AppCompatActivity {
         startActivity(intent);
         MainActivity.presupuestos.remove(spinner.getSelectedItemPosition());
         MainActivity.presupuestos.add(MainActivity.presupuesto);
+        actualizarPresupuestos();
     }
     public void actualizarPresupuestos(){
         List<String> items = new ArrayList<>();
 
-        for(int i = 0; i < MainActivity.presupuestos.size(); i++){
-            items.add(MainActivity.presupuestos.get(i).getNombre());
+        if(!MainActivity.presupuestos.isEmpty()) {
+            for (int i = 0; i < MainActivity.presupuestos.size(); i++) {
+                items.add(MainActivity.presupuestos.get(i).getNombre());
+            }
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);

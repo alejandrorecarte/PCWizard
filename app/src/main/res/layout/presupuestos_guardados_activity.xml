@@ -14,28 +14,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lPresupuestosGuardados" />
+        app:layout_constraintTop_toBottomOf="@+id/lComponentePrecios" />
 
     <TextView
-        android:id="@+id/lPresupuestosGuardados"
-        android:layout_width="277dp"
-        android:layout_height="76dp"
+        android:id="@+id/lComponentePrecios"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
         android:text="Mis presupuestos"
-        android:textSize="34sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bAtrasPrecios"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/bAtrasPresupuestosGuardados"
+        android:id="@+id/bAtrasPrecios"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="@color/pcwizard_blue"
         android:onClick="atrasBuscarFragment"
         android:text="Atrás"
+        app:icon="@android:drawable/ic_menu_revert"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,24 +59,35 @@
 
         <Button
             android:id="@+id/bModificarPresupuestos"
+            style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_weight="1"
+            android:backgroundTint="@color/pcwizard_blue"
             android:onClick="modificar"
-            android:text="Modificar" />
+            android:text="Modificar"
+            app:icon="@android:drawable/ic_menu_edit" />
 
         <Button
             android:id="@+id/bEliminarPresupuesto"
+            style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_weight="1"
-            android:text="Eliminar" />
+            android:backgroundTint="@color/pcwizard_blue"
+            android:text="Eliminar"
+            app:icon="@android:drawable/ic_menu_delete" />
     </LinearLayout>
 
     <ScrollView
         android:id="@+id/scrollView6"
-        android:layout_width="357dp"
-        android:layout_height="405dp"
+        android:layout_width="355dp"
+        android:layout_height="467dp"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.537"

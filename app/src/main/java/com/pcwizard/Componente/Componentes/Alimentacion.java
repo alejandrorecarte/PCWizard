@@ -11,14 +11,17 @@ public class Alimentacion extends Componente {
     private int potencia;
     private boolean modular;
 
-    public Alimentacion(String nombre, ArrayList<Pair<String, Double>> precio, int potencia, boolean modular) {
-        super(nombre, precio);
+    public Alimentacion() {
+    }
+
+    public Alimentacion(String nombre, int idImagen, ArrayList<Pair<String, Double>> precio, int potencia, boolean modular) {
+        super(nombre, idImagen, precio);
         this.potencia = potencia;
         this.modular = modular;
     }
 
-    public Alimentacion(String nombre, int potencia, boolean modular) {
-        super(nombre);
+    public Alimentacion(String nombre, int idImagen, int potencia, boolean modular) {
+        super(nombre, idImagen);
         this.potencia = potencia;
         this.modular = modular;
     }

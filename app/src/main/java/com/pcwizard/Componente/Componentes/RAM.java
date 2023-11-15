@@ -14,16 +14,19 @@ public class RAM extends Componente {
     private int latencia;
     private Memoria memoria;
 
-    public RAM(String nombre, ArrayList<Pair<String, Double>> precio, int capacidad, int velocidad, int latencia, Memoria memoria) {
-        super(nombre, precio);
+    public RAM() {
+    }
+
+    public RAM(String nombre, int idImagen, ArrayList<Pair<String, Double>> precio, int capacidad, int velocidad, int latencia, Memoria memoria) {
+        super(nombre, idImagen, precio);
         this.capacidad = capacidad;
         this.velocidad = velocidad;
         this.latencia = latencia;
         this.memoria = memoria;
     }
 
-    public RAM(String nombre, int capacidad, int velocidad, int latencia, Memoria memoria) {
-        super(nombre);
+    public RAM(String nombre, int idImagen, int capacidad, int velocidad, int latencia, Memoria memoria) {
+        super(nombre, idImagen);
         this.capacidad = capacidad;
         this.velocidad = velocidad;
         this.latencia = latencia;

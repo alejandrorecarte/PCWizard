@@ -12,15 +12,18 @@ public class Grafica extends Componente {
     private int velocidadReloj;
     private int potencia;
 
-    public Grafica(String nombre, ArrayList<Pair<String, Double>> precio, int memoria, int velocidadReloj, int potencia) {
-        super(nombre, precio);
+    public Grafica() {
+    }
+
+    public Grafica(String nombre, int idImagen, ArrayList<Pair<String, Double>> precio, int memoria, int velocidadReloj, int potencia) {
+        super(nombre, idImagen, precio);
         this.memoria = memoria;
         this.velocidadReloj = velocidadReloj;
         this.potencia = potencia;
     }
 
-    public Grafica(String nombre, int memoria, int velocidadReloj, int potencia) {
-        super(nombre);
+    public Grafica(String nombre, int idImagen, int memoria, int velocidadReloj, int potencia) {
+        super(nombre, idImagen);
         this.memoria = memoria;
         this.velocidadReloj = velocidadReloj;
         this.potencia = potencia;

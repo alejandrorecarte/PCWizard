@@ -10,17 +10,23 @@ public class Teclado extends Componente {
 
     private boolean mecanico;
     private String distribucion;
+    private boolean inalambrico;
 
-    public Teclado(String nombre, ArrayList<Pair<String, Double>> precio, boolean mecanico, String distribucion) {
-        super(nombre, precio);
-        this.mecanico = mecanico;
-        this.distribucion = distribucion;
+    public Teclado() {
     }
 
-    public Teclado(String nombre, boolean mecanico, String distribucion) {
-        super(nombre);
+    public Teclado(String nombre, int idImagen, ArrayList<Pair<String, Double>> precio, boolean mecanico, String distribucion, boolean inalambrico) {
+        super(nombre, idImagen, precio);
         this.mecanico = mecanico;
         this.distribucion = distribucion;
+        this.inalambrico = inalambrico;
+    }
+
+    public Teclado(String nombre, int idImagen, boolean mecanico, String distribucion, boolean inalambrico) {
+        super(nombre, idImagen);
+        this.mecanico = mecanico;
+        this.distribucion = distribucion;
+        this.inalambrico = inalambrico;
     }
 
     public boolean isMecanico() {
@@ -39,10 +45,19 @@ public class Teclado extends Componente {
         this.distribucion = distribucion;
     }
 
+    public boolean isInalambrico() {
+        return inalambrico;
+    }
+
+    public void setInalambrico(boolean inalambrico) {
+        this.inalambrico = inalambrico;
+    }
+
     @Override
     public String toString(){
         return ("Nombre: "+ getNombre() +
                 "\nMecánico: " + isMecanico() +
-                "\nDistribución: " + getDistribucion());
+                "\nDistribución: " + getDistribucion() +
+                "\nInalámbrico: " + isInalambrico());
     }
 }

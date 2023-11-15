@@ -10,17 +10,23 @@ public class Caja extends Componente {
     
     private double ancho;
     private double alto;
+    private double profundidad;
 
-    public Caja(String nombre, ArrayList<Pair<String, Double>> precio, double ancho, double alto) {
-        super(nombre, precio);
-        this.ancho = ancho;
-        this.alto = alto;
+    public Caja() {
     }
 
-    public Caja(String nombre, double ancho, double alto) {
-        super(nombre);
+    public Caja(String nombre, int idImagen, ArrayList<Pair<String, Double>> precio, double ancho, double alto, double profundidad) {
+        super(nombre, idImagen, precio);
         this.ancho = ancho;
         this.alto = alto;
+        this.profundidad = profundidad;
+    }
+
+    public Caja(String nombre, int idImagen, double ancho, double alto, double profundidad) {
+        super(nombre, idImagen);
+        this.ancho = ancho;
+        this.alto = alto;
+        this.profundidad = profundidad;
     }
     
     public double getAncho() {
@@ -39,10 +45,19 @@ public class Caja extends Componente {
         this.alto = alto;
     }
 
+    public double getProfundidad() {
+        return profundidad;
+    }
+
+    public void setProfundidad(double profundidad) {
+        this.profundidad = profundidad;
+    }
+
     @Override
     public String toString(){
         return ("Nombre: "+ getNombre() +
-                "\nAncho: " + getAncho() + " cm" +
-                "\nAlto: " +  getAlto() + " cm");
+                "\nAncho: " + getAncho() + " mm" +
+                "\nAlto: " +  getAlto() + " mm" +
+                "\nProfundidad: " + getProfundidad() + " mm");
     }
 }

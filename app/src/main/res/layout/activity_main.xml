@@ -4,64 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context="com.pcwizard.MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerViewMainActivity"
-        android:layout_width="412dp"
-        android:layout_height="473dp"
-        android:foregroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
-        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/lVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="v1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="357dp"
-        android:layout_height="352dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
         <Button
-            android:id="@+id/nuevoPresupuesto"
+            android:id="@+id/bNuevoPresupuesto"
+            style="@style/Widget.Material3.Button"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginTop="0dp"
+            android:backgroundTint="@color/pcwizard_blue"
             android:onClick="nuevoPresupuesto"
             android:text="Nuevo presupuesto"
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/misPresupuestos"
+            android:id="@+id/bMisPresupuestos"
+            style="@style/Widget.Material3.Button"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/pcwizard_blue"
             android:onClick="misPresupuestos"
             android:text="Mis presupuestos"
             android:textSize="24sp" />
 
         <Button
             android:id="@+id/bGuiaMontaje"
+            style="@style/Widget.Material3.Button"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/pcwizard_blue"
+            android:onClick="guiasMontaje"
             android:text="Guías de montaje"
             android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/bPremium"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/pcwizard_blue"
+            android:gravity="center"
+            android:onClick="premium"
+            android:text="Activar premium"
+            android:textSize="24sp"
+            app:icon="@android:drawable/btn_star"
+            app:iconSize="30dp" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/pcWizard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PC Wizard"
-        android:textSize="60sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="344dp"
+        android:layout_height="184dp"
+        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_pcwizard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,8 +16,11 @@ public class Microprocesador extends Componente {
     private Memoria memoria;
     private Chipset chipset;
 
-    public Microprocesador(String nombre, ArrayList<Pair<String, Double>> precio, double frecuencia, int nucleos, int hilos, Memoria memoria, Chipset chipset) {
-        super(nombre, precio);
+    public Microprocesador() {
+    }
+
+    public Microprocesador(String nombre, int idImagen, ArrayList<Pair<String, Double>> precio, double frecuencia, int nucleos, int hilos, Memoria memoria, Chipset chipset) {
+        super(nombre, idImagen, precio);
         this.frecuencia = frecuencia;
         this.nucleos = nucleos;
         this.hilos = hilos;
@@ -25,8 +28,8 @@ public class Microprocesador extends Componente {
         this.chipset = chipset;
     }
 
-    public Microprocesador(String nombre, double frecuencia, int nucleos, int hilos, Memoria memoria, Chipset chipset) {
-        super(nombre);
+    public Microprocesador(String nombre, int idImagen, double frecuencia, int nucleos, int hilos, Memoria memoria, Chipset chipset) {
+        super(nombre, idImagen);
         this.frecuencia = frecuencia;
         this.nucleos = nucleos;
         this.hilos = hilos;

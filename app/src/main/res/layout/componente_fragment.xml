@@ -8,30 +8,37 @@
 
     <Button
         android:id="@+id/bAtrasComp"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="@color/pcwizard_blue"
         android:text="Atrás"
+        app:icon="@android:drawable/ic_menu_revert"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/lComponente"
-        android:layout_width="277dp"
-        android:layout_height="76dp"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="10dp"
         android:text="No se ha podido cargar"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bAtrasComp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/bCompararPrecios"
+        style="@style/Widget.Material3.Button"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/pcwizard_blue"
         android:text="Comparar precios"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,14 +51,15 @@
         android:layout_width="377dp"
         android:layout_height="286dp"
         android:layout_marginTop="100dp"
+        android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <FrameLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/lDescripcion"
@@ -60,8 +68,17 @@
                 android:padding="30dp"
                 android:text="No se ha podido cargar"
                 android:textSize="20sp"
-                tools:layout_editor_absoluteX="38dp"
-                tools:layout_editor_absoluteY="285dp" />
-        </FrameLayout>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iComponente"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lDescripcion" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

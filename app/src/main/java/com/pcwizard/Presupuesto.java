@@ -1,6 +1,5 @@
 package com.pcwizard;
 
-import com.pcwizard.Componente.Componente;
 import com.pcwizard.Componente.Componentes.Enumerados.Chipset;
 import com.pcwizard.Componente.Componentes.Enumerados.Memoria;
 import com.pcwizard.Componente.Componentes.Microprocesador;
@@ -15,8 +14,6 @@ import com.pcwizard.Componente.Componentes.SistemaOperativo;
 import com.pcwizard.Componente.Componentes.Monitor;
 import com.pcwizard.Componente.Componentes.Teclado;
 import com.pcwizard.Componente.Componentes.Raton;
-
-import java.util.ArrayList;
 
 
 public class Presupuesto {
@@ -34,6 +31,10 @@ public class Presupuesto {
     private Monitor monitor;
     private Teclado teclado;
     private Raton raton;
+    private Memoria memoria;
+    private Chipset chipset;
+    private int potenciaNecesitada = -1;
+    private int potenciaAlimentada = -1;
     private int[] vendedorEscogido = new int[12];
 
     public Presupuesto() {
@@ -68,6 +69,8 @@ public class Presupuesto {
 
     public void setPlacaBase(PlacaBase placaBase) {
         this.placaBase = placaBase;
+        memoria = placaBase.getMemoria();
+        chipset = placaBase.getChipset();
     }
 
     public Microprocesador getMicroprocesador() {
@@ -76,6 +79,8 @@ public class Presupuesto {
 
     public void setMicroprocesador(Microprocesador microprocesador) {
         this.microprocesador = microprocesador;
+        memoria = microprocesador.getMemoria();
+        chipset = microprocesador.getChipset();
     }
 
     public RAM getRam() {
@@ -84,6 +89,7 @@ public class Presupuesto {
 
     public void setRam(RAM ram) {
         this.ram = ram;
+        memoria = ram.getMemoria();
     }
 
     public Caja getCaja() {
@@ -108,6 +114,7 @@ public class Presupuesto {
 
     public void setAlimentacion(Alimentacion alimentacion) {
         this.alimentacion = alimentacion;
+        potenciaAlimentada = alimentacion.getPotencia();
     }
 
     public Grafica getGrafica() {
@@ -116,6 +123,7 @@ public class Presupuesto {
 
     public void setGrafica(Grafica grafica) {
         this.grafica = grafica;
+        potenciaNecesitada = grafica.getPotencia();
     }
 
     public Almacenamiento getAlmacenamiento() {
@@ -166,34 +174,72 @@ public class Presupuesto {
         return vendedorEscogido;
     }
 
+    public Memoria getMemoria() {
+        return memoria;
+    }
+
+    public void setMemoria(Memoria memoria) {
+        this.memoria = memoria;
+    }
+
+    public Chipset getChipset() {
+        return chipset;
+    }
+
+    public int getPotenciaNecesitada() {
+        return potenciaNecesitada;
+    }
+
+    public void setPotenciaNecesitada(int potenciaNecesitada) {
+        this.potenciaNecesitada = potenciaNecesitada;
+    }
+
+    public int getPotenciaAlimentada() {
+        return potenciaAlimentada;
+    }
+
+    public void setPotenciaAlimentada(int potenciaAlimentada) {
+        this.potenciaAlimentada = potenciaAlimentada;
+    }
+
+    public void setChipset(Chipset chipset) {
+        this.chipset = chipset;
+    }
+
     public double getPrecioTotal(){
         double precioTotal = 0;
         if(getPlacaBase() != null) {
             precioTotal += getPlacaBase().getVendedor().get(getVendedorEscogido()[0]).second;
         }
         if(getMicroprocesador() != null) {
-        precioTotal += getMicroprocesador().getVendedor().get(getVendedorEscogido()[1]).second;
+            precioTotal += getMicroprocesador().getVendedor().get(getVendedorEscogido()[1]).second;
         }
         if(getRam() != null) {
-        precioTotal += getRam().getVendedor().get(getVendedorEscogido()[2]).second;
+            precioTotal += getRam().getVendedor().get(getVendedorEscogido()[2]).second;
         }
-        if(getCaja() != null) {precioTotal += getCaja().getVendedor().get(getVendedorEscogido()[3]).second;
-        precioTotal += getRefrigeracion().getVendedor().get(getVendedorEscogido()[4]).second;
+        if(getCaja() != null) {
+            precioTotal += getCaja().getVendedor().get(getVendedorEscogido()[3]).second;
+        }
+        if(getRefrigeracion() != null){
+            precioTotal += getRefrigeracion().getVendedor().get(getVendedorEscogido()[4]).second;
         }
         if(getAlimentacion() != null) {
-        precioTotal += getAlimentacion().getVendedor().get(getVendedorEscogido()[5]).second;
+            precioTotal += getAlimentacion().getVendedor().get(getVendedorEscogido()[5]).second;
         }
         if(getGrafica() != null) {
-        precioTotal += getGrafica().getVendedor().get(getVendedorEscogido()[6]).second;
+            precioTotal += getGrafica().getVendedor().get(getVendedorEscogido()[6]).second;
         }
-        if(getSistemaOperativo() != null) {precioTotal += getAlmacenamiento().getVendedor().get(getVendedorEscogido()[7]).second;
-        precioTotal += getSistemaOperativo().getVendedor().get(getVendedorEscogido()[8]).second;
+        if(getAlmacenamiento() != null) {
+            precioTotal += getAlmacenamiento().getVendedor().get(getVendedorEscogido()[7]).second;
         }
-        if(getSistemaOperativo() != null) {
-        precioTotal += getSistemaOperativo().getVendedor().get(getVendedorEscogido()[9]).second;
+        if(getSistemaOperativo() != null){
+            precioTotal += getSistemaOperativo().getVendedor().get(getVendedorEscogido()[8]).second;
+        }
+        if(getMonitor() != null) {
+            precioTotal += getMonitor().getVendedor().get(getVendedorEscogido()[9]).second;
         }
         if(getTeclado() != null) {
-        precioTotal += getTeclado().getVendedor().get(getVendedorEscogido()[10]).second;
+            precioTotal += getTeclado().getVendedor().get(getVendedorEscogido()[10]).second;
         }
         if(getRaton() != null) {
             precioTotal += getRaton().getVendedor().get(getVendedorEscogido()[11]).second;

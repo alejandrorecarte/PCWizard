@@ -13,14 +13,17 @@ public class PlacaBase extends Componente {
     private Chipset chipset;
     private Memoria memoria;
 
-    public PlacaBase(String nombre, ArrayList<Pair<String, Double>> precio, Memoria memoria, Chipset chipset) {
-        super(nombre, precio);
+    public PlacaBase() {
+    }
+
+    public PlacaBase(String nombre, int idImagen, ArrayList<Pair<String, Double>> precio, Memoria memoria, Chipset chipset) {
+        super(nombre, idImagen, precio);
         this.chipset = chipset;
         this.memoria = memoria;
     }
 
-    public PlacaBase(String nombre, Memoria memoria, Chipset chipset) {
-        super(nombre);
+    public PlacaBase(String nombre, int idImagen, Memoria memoria, Chipset chipset) {
+        super(nombre, idImagen);
         this.chipset = chipset;
         this.memoria = memoria;
     }

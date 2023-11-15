@@ -9,41 +9,44 @@ import java.util.ArrayList;
 
 public class Refrigeracion extends Componente {
 
-    private int voltaje;
-    private Chipset chipset;
+    private double voltaje;
+    private boolean led;
 
-    public Refrigeracion(String nombre, ArrayList<Pair<String, Double>> precio, int voltaje, Chipset chipset) {
-        super(nombre, precio);
-        this.voltaje = voltaje;
-        this.chipset = chipset;
+    public Refrigeracion() {
     }
 
-    public Refrigeracion(String nombre, int voltaje, Chipset chipset) {
-        super(nombre);
+    public Refrigeracion(String nombre, int idImagen, ArrayList<Pair<String, Double>> precio, double voltaje, boolean led) {
+        super(nombre, idImagen);
         this.voltaje = voltaje;
-        this.chipset = chipset;
+        this.led = led;
     }
 
-    public int getVoltaje() {
+    public Refrigeracion(String nombre, int idImagen, double voltaje, boolean led) {
+        super(nombre, idImagen);
+        this.voltaje = voltaje;
+        this.led = led;
+    }
+
+    public double getVoltaje() {
         return voltaje;
     }
 
-    public void setVoltaje(int voltaje) {
+    public void setVoltaje(double voltaje) {
         this.voltaje = voltaje;
     }
 
-    public Chipset getChipset() {
-        return chipset;
+    public boolean isLed() {
+        return led;
     }
 
-    public void setChipset(Chipset chipset) {
-        this.chipset = chipset;
+    public void setLed(boolean led) {
+        this.led = led;
     }
 
     @Override
     public String toString(){
         return ("Nombre: "+ getNombre() +
-                "\nVoltaje: " + getVoltaje() + "W" +
-                "\nChipset: " + getChipset().name());
+                "\nVoltaje: " + getVoltaje() + "V" +
+                "\nLED: " + isLed());
     }
 }

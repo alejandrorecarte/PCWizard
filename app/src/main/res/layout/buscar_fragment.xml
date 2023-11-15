@@ -10,6 +10,7 @@
         android:layout_width="411dp"
         android:layout_height="371dp"
         android:layout_marginTop="175dp"
+        android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,30 +33,35 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/bAtrasPresupuestosGuardados"
+        android:id="@+id/bAtrasPrecios"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="@color/pcwizard_blue"
         android:onClick="atrasBuscarFragment"
         android:text="Atrás"
+        app:icon="@android:drawable/ic_menu_revert"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/lComponenteBuscar"
-        android:layout_width="262dp"
-        android:layout_height="32dp"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
         android:text="No se ha podido cargar"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.377"
-        app:layout_constraintStart_toEndOf="@+id/bAtrasPresupuestosGuardados"
+        app:layout_constraintStart_toEndOf="@+id/bAtrasPrecios"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etComponenteBuscar"
+        android:id="@+id/etBuscarPrecios"
         android:layout_width="246dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -67,14 +73,17 @@
         app:layout_constraintTop_toBottomOf="@+id/lComponenteBuscar" />
 
     <Button
-        android:id="@+id/bBuscarBuscar"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
+        android:id="@+id/bBuscarPrecios"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:backgroundTint="@color/pcwizard_blue"
         android:text="Buscar"
+        app:icon="@android:drawable/ic_menu_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.448"
-        app:layout_constraintStart_toEndOf="@+id/etComponenteBuscar"
+        app:layout_constraintStart_toEndOf="@+id/etBuscarPrecios"
         app:layout_constraintTop_toBottomOf="@+id/lComponenteBuscar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

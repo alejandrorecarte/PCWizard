@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -31,8 +32,12 @@ import java.util.ArrayList;
 
 public class PreciosFragment extends Fragment {
 
-    TextView lComponentePrecios;
-    Button bAtras;
+    private TextView lComponentePrecios;
+    private Button bAtras;
+    private Button bBuscarPrecios;
+    private EditText etBuscarPrecios;
+    private ArrayAdapter<String> adapter;
+    private ListView listView;
     private Componente componente;
     private ComponenteFragment componenteFragment;
     public PreciosFragment preciosFragment = this;
@@ -46,25 +51,19 @@ public class PreciosFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.precios_fragment, container, false);
 
-        ArrayList<String> items = new ArrayList<String>();
+        adapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_list_item_1, actualizarBusqueda(componente, ""));
 
-        for(int i = 0; i < componente.getVendedor().size(); i++){
-            items.add(componente.getVendedor().get(i).first + ": " + componente.getVendedor().get(i).second + "€");
-        }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_list_item_1, items);
-
-        ListView listView = view.findViewById(R.id.listBuscar);
+        listView = view.findViewById(R.id.listBuscar);
         listView.setAdapter(adapter);
 
         listView.setAdapter(adapter);
 
-        lComponentePrecios = view.findViewById(R.id.lPresupuestosGuardados);
+        lComponentePrecios = view.findViewById(R.id.lComponentePrecios);
         if(lComponentePrecios != null) {
             lComponentePrecios.setText(componenteFragment.componente);
         }
-        bAtras = view.findViewById(R.id.bAtrasPresupuestosGuardados);
+        bAtras = view.findViewById(R.id.bAtrasPrecios);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -123,7 +122,7 @@ public class PreciosFragment extends Fragment {
             }
         });
 
-        bAtras = view.findViewById(R.id.bAtrasPresupuestosGuardados);
+        bAtras = view.findViewById(R.id.bAtrasPrecios);
         bAtras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,10 +133,36 @@ public class PreciosFragment extends Fragment {
                 }
             }
         });
+
+        bBuscarPrecios = view.findViewById(R.id.bBuscarPrecios);
+        etBuscarPrecios = view.findViewById(R.id.etBuscarPrecios);
+        bBuscarPrecios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter = new ArrayAdapter<>(getContext(),
+                        android.R.layout.simple_list_item_1, actualizarBusqueda(componente, String.valueOf(etBuscarPrecios.getText())));
+                adapter.notifyDataSetChanged();
+                listView.setAdapter(adapter);
+            }
+        });
         return view;
     }
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    public ArrayList<String> actualizarBusqueda(Componente componente, String busqueda){
+        ArrayList<String> items = new ArrayList<String>();
+        for(int i = 0; i < componente.getVendedor().size(); i++){
+            items.add(componente.getVendedor().get(i).first + ": " + componente.getVendedor().get(i).second + "€");
+        }
+
+        for(int i = 0; i < items.size(); i++){
+            if(!items.get(i).contains(busqueda)){
+                items.remove(i);
+            }
+        }
+        return items;
     }
 }
